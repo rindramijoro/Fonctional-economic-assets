@@ -1,0 +1,17 @@
+[
+    {
+        "LIBELLE": "Iphone 14",
+        "INITIALE": 2500000,
+        "DEBUT": "2024-8-7",
+        "FIN": "2026-8-7",
+        "AMORTISSEMENT": "0.05"
+    },
+    
+    {
+        "LIBELLE": "Porsche 911 GT3 RS ",
+        "INITIALE": 1127597720,
+        "DEBUT": "2024-8-7",
+        "FIN": "2026-8-7",
+        "AMORTISSEMENT": "0.05"
+    }
+]
