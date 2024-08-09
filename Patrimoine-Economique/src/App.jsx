@@ -21,7 +21,7 @@ const PickDate = () => {
   const handleDateSubmit = () => {
     if (!startDate) {
       setError("Veuillez d'abord choisir une date");
-      setFilteredData([]); 
+      setFilteredData([]);
       return;
     }
 
@@ -44,9 +44,9 @@ const PickDate = () => {
 
       const calculateCurrentValue = (initialValue, startDate, amortizationRate) => {
         const start = new Date(startDate);
-        const now = new Date(selectedDate); 
+        const now = new Date(selectedDate);
 
-        const elapsedDuration = (now - start) / (1000 * 60 * 60 * 24 * 365); 
+        const elapsedDuration = (now - start) / (1000 * 60 * 60 * 24 * 365);
         const depreciation = amortizationRate / 100 * elapsedDuration;
         const currentValue = initialValue * (1 - depreciation);
 
@@ -60,7 +60,7 @@ const PickDate = () => {
         dateFin: selectedDate,
         valeurActuelle: currentValue.toFixed(2),
       };
-    }).filter(item => item !== null); 
+    }).filter(item => item !== null);
     setError('');
     setFilteredData(filteredPossessions);
   };
@@ -85,11 +85,11 @@ const PickDate = () => {
             dateFormat="yyyy/MM/dd"
             style={{ height: 'calc(1.5vh + .75vh + 2px)' }}
           />
-          <Button 
-            as="input" 
-            type="submit" 
-            value="Envoyer" 
-            className='border-start-0 rounded-0' 
+          <Button
+            as="input"
+            type="submit"
+            value="Envoyer"
+            className='border-start-0 rounded-0'
             style={{ height: 'calc(3vh + .75vh + 2px)' }}
             onClick={handleDateSubmit}
           />
@@ -117,7 +117,7 @@ const PickDate = () => {
                   <td>{item.valeur} Ar</td>
                   <td>{formatDate(item.dateDebut)}</td>
                   <td>{formatDate(item.dateFin)}</td>
-                  <td>{item.tauxAmortissement/100} </td>
+                  <td>{item.tauxAmortissement / 100} </td>
                   <td>{item.valeurActuelle} Ar</td>
                 </tr>
               ))}
@@ -219,19 +219,19 @@ function GestionPatrimoine() {
 function App() {
   return (
     <div>
-      <div className='mb-5'>
+      <thead className='mb-5'>
         <h1>GESTION DE PATRIMOINE</h1>
-      </div>
-      <div>
-        <GestionPatrimoine />
-      </div>
-      <div>
-        <PickDate />
-      </div>
+      </thead>
+      <tbody>
+        <div>
+          <GestionPatrimoine />
+        </div>
+        <div>
+          <PickDate />
+        </div>
+      </tbody>
     </div>
-
   );
-
 }
 
 export default App;
